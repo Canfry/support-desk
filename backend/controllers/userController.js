@@ -70,10 +70,24 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc   Get getMe page
+// @route  /api/users/me
+// access  Private
+const getMe = asyncHandler(async (req, res) => {
+  // Filter in order to remove _id and isAdmin
+  const user = {
+    id: req.user._id,
+    email: req.user.email,
+    name: req.user.name,
+  };
+  res.status(200).json(user);
+  // res.status(200).json(req.user);  Return all fields of data -password
+});
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: '30d',
   });
 };
 
-module.exports = { registerUser, loginUser };
+module.exports = { registerUser, loginUser, getMe };
