@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FaSignInAlt } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 
 const Login = () => {
   const [formData, setFormData] = useState({
