@@ -10,7 +10,7 @@ const NewTicket = () => {
   const { user } = useSelector((state) => state.auth);
 
   const { isLoading, isSuccess, isError, message } = useSelector(
-    (state) => state.ticket
+    (state) => state.tickets
   );
 
   const [name] = useState(user.name);
