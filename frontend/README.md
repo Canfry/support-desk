@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm run dev`
+
+Run the frontend and the backend at the same time (check the scripts in the root package.json). It will reload both, backend and fontend, after every change.
+
 ### `npm start`
 
 Runs the app in the development mode.\
