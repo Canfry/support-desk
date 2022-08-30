@@ -8,13 +8,14 @@ const Note = require('../models/noteModel');
 // @route  GET /api/tickets/:ticketId/notes
 // access  Private
 const getNotes = asyncHandler(async (req, res) => {
-  // Get user using the id in the JWT
-  const user = await User.findById(req.user.id);
+  // NOTE: no need to get the user, we already have them on req object from
+  // protect middleware. The protect middleware already checks for valid user.
+  // const user = await User.findById(req.user.id);
 
-  if (!user) {
-    res.status(401);
-    throw new Error('User not found');
-  }
+  // if (!user) {
+  //   res.status(401);
+  //   throw new Error('User not found');
+  // }
 
   // Get the ticket
   const ticket = await Ticket.findById(req.params.ticketId);
@@ -34,12 +35,12 @@ const getNotes = asyncHandler(async (req, res) => {
 // access  Private
 const addNote = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
-  const user = await User.findById(req.user.id);
+  // const user = await User.findById(req.user.id);
 
-  if (!user) {
-    res.status(401);
-    throw new Error('User not found');
-  }
+  // if (!user) {
+  //   res.status(401);
+  //   throw new Error('User not found');
+  // }
 
   // Get the ticket
   const ticket = await Ticket.findById(req.params.ticketId);
